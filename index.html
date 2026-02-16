@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoundIT - VIT Lost & Found</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-search-location"></i> FoundI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="browse.html">Browse Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="report-lost.html">Report Lost</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="report-found.html">Report Found</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <i class="fas fa-user"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-3 fw-bold text-white mb-4">Lost Something?<br>We'll Help You Find It!</h1>
+                    <p class="lead text-white mb-4">FoundIT is VIT's centralized platform for reporting and tracking lost and found items on campus.</p>
+                    <div class="d-flex gap-3">
+                        <a href="report-lost.html" class="btn btn-light btn-lg">
+                            <i class="fas fa-exclamation-circle"></i> Report Lost Item
+                        </a>
+                        <a href="report-found.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-check-circle"></i> Report Found Item
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="stat-card">
+                        <i class="fas fa-box stat-icon"></i>
+                        <h3 class="stat-number" data-target="247">0</h3>
+                        <p class="stat-label">Items Reported</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="stat-card">
+                        <i class="fas fa-handshake stat-icon"></i>
+                        <h3 class="stat-number" data-target="189">0</h3>
+                        <p class="stat-label">Items Returned</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="stat-card">
+                        <i class="fas fa-users stat-icon"></i>
+                        <h3 class="stat-number" data-target="523">0</h3>
+                        <p class="stat-label">Active Users</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="stat-card">
+                        <i class="fas fa-percentage stat-icon"></i>
+                        <h3 class="stat-number" data-target="76">0</h3>
+                        <p class="stat-label">Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="work-step">
+                        <div class="step-number">1</div>
+                        <i class="fas fa-file-alt step-icon"></i>
+                        <h4>Report Item</h4>
+                        <p>Submit details about your lost or found item with photos and description.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="work-step">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-search step-icon"></i>
+                        <h4>Browse & Match</h4>
+                        <p>Search through reported items and find matches using our smart filters.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="work-step">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-undo step-icon"></i>
+                        <h4>Claim & Recover</h4>
+                        <p>Verify ownership and claim your item through our secure process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Browse by Category</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="category-card" data-category="electronics">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h5>Electronics</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="category-card" data-category="books">
+                        <i class="fas fa-book"></i>
+                        <h5>Books & Notes</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="category-card" data-category="accessories">
+                        <i class="fas fa-glasses"></i>
+                        <h5>Accessories</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="category-card" data-category="bags">
+                        <i class="fas fa-briefcase"></i>
+                        <h5>Bags & Wallets</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="category-card" data-category="id">
+                        <i class="fas fa-id-card"></i>
+                        <h5>ID Cards</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="category-card" data-category="keys">
+                        <i class="fas fa-key"></i>
+                        <h5>Keys</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="category-card" data-category="clothing">
+                        <i class="fas fa-tshirt"></i>
+                        <h5>Clothing</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="category-card" data-category="others">
+                        <i class="fas fa-ellipsis-h"></i>
+                        <h5>Others</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="fas fa-search-location"></i> FoundIT</h5>
+                    <p>VIT Campus Lost and Found Management System</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="browse.html" class="text-white-50">Browse Items</a></li>
+                        <li><a href="report-lost.html" class="text-white-50">Report Lost</a></li>
+                        <li><a href="report-found.html" class="text-white-50">Report Found</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact</h5>
+                    <p class="text-white-50">
+                        <i class="fas fa-envelope"></i> support@foundit.vit.edu<br>
+                        <i class="fas fa-phone"></i> +91 XXX-XXX-XXXX
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-white-50">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 FoundIT - VIT Campus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
