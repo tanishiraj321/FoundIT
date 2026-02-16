@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Items - FoundIT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-search-location"></i> FoundIT
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="browse.html">Browse Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="report-lost.html">Report Lost</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="report-found.html">Report Found</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <i class="fas fa-user"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-header">
+        <div class="container">
+            <h1>Browse Items</h1>
+            <p>Search through lost and found items on campus</p>
+        </div>
+    </div>
+    <section class="search-section py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mb-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search by item name, description, or location...">
+                        <button class="btn btn-primary" type="button" id="searchBtn">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <select class="form-select" id="itemTypeFilter">
+                        <option value="">All Items</option>
+                        <option value="lost">Lost Items</option>
+                        <option value="found">Found Items</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-3 col-sm-6 mb-2">
+                    <select class="form-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="books">Books & Notes</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="bags">Bags & Wallets</option>
+                        <option value="id">ID Cards</option>
+                        <option value="keys">Keys</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-2">
+                    <select class="form-select" id="locationFilter">
+                        <option value="">All Locations</option>
+                        <option value="library">Library</option>
+                        <option value="academic-block">Academic Block</option>
+                        <option value="hostel">Hostel</option>
+                        <option value="cafeteria">Cafeteria</option>
+                        <option value="sports-complex">Sports Complex</option>
+                        <option value="parking">Parking Area</option>
+                        <option value="auditorium">Auditorium</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-2">
+                    <select class="form-select" id="sortFilter">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-2">
+                    <button class="btn btn-outline-secondary w-100" id="resetFilters">
+                        <i class="fas fa-redo"></i> Reset Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="items-section py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4>Results (<span id="itemCount">0</span> items)</h4>
+                <div class="view-toggle">
+                    <button class="btn btn-sm btn-outline-primary active" id="gridView">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-primary" id="listView">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="itemsContainer" class="row">
+            </div>
+
+            <div id="noResults" class="text-center py-5" style="display: none;">
+                <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                <h4>No items found</h4>
+                <p class="text-muted">Try adjusting your search or filters</p>
+            </div>
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center" id="pagination">
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <div class="modal fade" id="itemDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalItemTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="modalItemImage" class="img-fluid rounded" src="" alt="Item image">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="item-details">
+                                <p><strong>Status:</strong> <span id="modalItemStatus" class="badge"></span></p>
+                                <p><strong>Category:</strong> <span id="modalItemCategory"></span></p>
+                                <p><strong>Location:</strong> <span id="modalItemLocation"></span></p>
+                                <p><strong>Date:</strong> <span id="modalItemDate"></span></p>
+                                <p><strong>Description:</strong></p>
+                                <p id="modalItemDescription"></p>
+                                <p><strong>Contact:</strong> <span id="modalItemContact"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="claimItemBtn">
+                        <i class="fas fa-hand-paper"></i> Claim This Item
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="fas fa-search-location"></i> FoundIT</h5>
+                    <p>VIT Campus Lost and Found Management System</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="browse.html" class="text-white-50">Browse Items</a></li>
+                        <li><a href="report-lost.html" class="text-white-50">Report Lost</a></li>
+                        <li><a href="report-found.html" class="text-white-50">Report Found</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact</h5>
+                    <p class="text-white-50">
+                        <i class="fas fa-envelope"></i> support@foundit.vit.edu<br>
+                        <i class="fas fa-phone"></i> +91 XXX-XXX-XXXX
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-white-50">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 FoundIT - VIT Campus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="browse.js"></script>
+</body>
+</html>
